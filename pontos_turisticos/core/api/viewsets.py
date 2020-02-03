@@ -1,3 +1,4 @@
+from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 
 from .serializers import TouristSpotSerializer
@@ -9,3 +10,7 @@ class TouristSpotViewSet(ModelViewSet):
 
     def get_queryset(self):
         return TouristSpot.objects.filter(approved=True)
+
+    @action(methods=['get'], detail=True)
+    def denounce(self, request, pk=None):
+        pass
