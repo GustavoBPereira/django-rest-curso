@@ -9,7 +9,7 @@ from pontos_turisticos.comments.api.viewsets import CommentViewSet
 from pontos_turisticos.evaluations.api.viewsets import EvaluationViewSet
 
 router = routers.DefaultRouter()
-router.register(r'touristspot', TouristSpotViewSet)
+router.register(r'touristspot', TouristSpotViewSet, basename='TouristSpot')
 router.register(r'attractions', AttractionViewSet)
 router.register(r'addresses', AddressViewSet)
 router.register(r'comments', CommentViewSet)
