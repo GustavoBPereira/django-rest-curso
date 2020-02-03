@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from pontos_turisticos.attractions.api.viewsets import AttractionViewSet
 from pontos_turisticos.core.api.viewsets import TouristSpotViewSet
 from pontos_turisticos.address.api.viewsets import AddressViewSet
@@ -18,4 +21,4 @@ router.register(r'evaluations', EvaluationViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

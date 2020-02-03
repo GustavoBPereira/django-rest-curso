@@ -9,7 +9,10 @@ class TouristSpotViewSet(ModelViewSet):
     serializer_class = TouristSpotSerializer
 
     def get_queryset(self):
-        return TouristSpot.objects.filter(approved=True)
+        return TouristSpot.objects.all()
+
+    def list(self, request, *args, **kwargs):
+        return super(TouristSpotViewSet, self).list(request, *args, **kwargs)
 
     @action(methods=['get'], detail=True)
     def denounce(self, request, pk=None):
