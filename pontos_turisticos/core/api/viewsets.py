@@ -9,7 +9,11 @@ class TouristSpotViewSet(ModelViewSet):
     serializer_class = TouristSpotSerializer
 
     def get_queryset(self):
-        return TouristSpot.objects.all()
+        _id = self.request.query_params.get('id')
+        queryset = TouristSpot.objects.all()
+        if _id:
+            queryset = queryset.filter(pk=_id)
+        return queryset
 
     def list(self, request, *args, **kwargs):
         return super(TouristSpotViewSet, self).list(request, *args, **kwargs)
