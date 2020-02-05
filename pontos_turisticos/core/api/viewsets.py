@@ -7,13 +7,10 @@ from pontos_turisticos.core.models import TouristSpot
 
 class TouristSpotViewSet(ModelViewSet):
     serializer_class = TouristSpotSerializer
+    filterset_fields = ['id', 'name']
 
     def get_queryset(self):
-        _id = self.request.query_params.get('id')
-        queryset = TouristSpot.objects.all()
-        if _id:
-            queryset = queryset.filter(pk=_id)
-        return queryset
+        return TouristSpot.objects.all()
 
     def list(self, request, *args, **kwargs):
         return super(TouristSpotViewSet, self).list(request, *args, **kwargs)
