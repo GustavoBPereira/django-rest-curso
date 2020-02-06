@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'rest_framework.authtoken',
     'pontos_turisticos.core',
     'pontos_turisticos.attractions',
     'pontos_turisticos.comments',
