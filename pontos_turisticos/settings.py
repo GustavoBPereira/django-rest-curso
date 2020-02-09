@@ -24,7 +24,7 @@ SECRET_KEY = '!c)^gvc%5atnn8dj=_1m6&q3l5t4p-i&hy@@1)km()%149a=i#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tourist-spot-api.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['tourist-spot-api.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
