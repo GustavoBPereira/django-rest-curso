@@ -1,3 +1,4 @@
+from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 
 from pontos_turisticos.core.models import TouristSpot
@@ -12,11 +13,16 @@ class TouristSpotSerializer(ModelSerializer):
     comments = CommentSerializer(many=True)
     evaluations = EvaluationSerializer(many=True)
     address = AddressSerializer()
+    full_description = SerializerMethodField()
 
     class Meta:
         model = TouristSpot
         fields = (
             'id', 'name', 'description',
             'approved', 'photo', 'attractions',
-            'comments', 'evaluations', 'address'
+            'comments', 'evaluations', 'address',
+            'full_description'
         )
+
+    def get_full_description(self, obj):
+        return f'{obj.description} - {obj.name}'
