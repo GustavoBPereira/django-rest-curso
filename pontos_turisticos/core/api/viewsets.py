@@ -9,8 +9,8 @@ from pontos_turisticos.core.models import TouristSpot
 
 
 class TouristSpotViewSet(ModelViewSet):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
     serializer_class = TouristSpotSerializer
     filterset_fields = ['name']
     filter_backends = (SearchFilter,)
