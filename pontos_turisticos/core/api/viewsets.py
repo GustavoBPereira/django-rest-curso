@@ -17,7 +17,7 @@ class TouristSpotViewSet(ModelViewSet):
     search_fields = ['name', 'description']
 
     def get_queryset(self):
-        return TouristSpot.objects.all()
+        return TouristSpot.objects.order_by('-pk')
 
     def list(self, request, *args, **kwargs):
         return super(TouristSpotViewSet, self).list(request, *args, **kwargs)
